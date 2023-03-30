@@ -1,1 +1,1 @@
-Sample codes for Basys3 FPGA used in research with the Wienacht Group (Stony Brook University).
+Sample codes for Basys3 FPGA used in PHY 287 research.
