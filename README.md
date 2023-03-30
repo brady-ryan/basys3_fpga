@@ -1,1 +1,1 @@
-# basys3_fpga
+Sample codes for Basys3 FPGA used in research with the Wienacht Group (Stony Brook University).
