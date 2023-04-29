@@ -3,7 +3,7 @@ close all;
  
 s = serialport("COM4", 3686400, "Timeout", 5);
  
-num_samples = 7000; % Increase the number of samples
+num_samples = 7000; 
 data_type = "int8"; 
 data = zeros(1, num_samples);
 time_stamps = zeros(1, num_samples);
@@ -23,11 +23,8 @@ cutoff_freq = 0.1 * Fs;
 order = 5;
 [b, a] = butter(order, cutoff_freq / (Fs / 2), 'low');
 filtered_data = filtfilt(b, a, data);
- 
-PI = 3.14159;
-t = linspace(0, .03, 10000);
-freq = 500;
- 
+
+
 % Plot filtered data against time
 plot(time/75, data/125); 
 hold on;
