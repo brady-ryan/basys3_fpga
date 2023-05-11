@@ -10,3 +10,4 @@ These directories contain codes to transmit data converted by the XADC analog-di
 
 ![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/xadc_data_transmission/images/unnamed.png)
 
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/xadc_data_transmission/images/unnamed-2.png)
