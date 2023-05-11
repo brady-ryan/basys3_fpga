@@ -8,4 +8,4 @@ These directories contain codes to transmit data converted by the XADC analog-di
 
 *NOTE - Only the 8 most significant bits are transferred*
 
-![Fail!](https://github.com/brady-ryan/basys3_fpga/tree/main/xadc_data_transmission/unnamed.jpg?raw=true)
+![Fail!](https://github.com/brady-ryan/basys3_fpga/tree/main/unnamed.jpg?raw=true)
