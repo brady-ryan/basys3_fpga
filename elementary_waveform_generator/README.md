@@ -1,4 +1,4 @@
-An elementary waveform generator implemented using 3 different Look-Up Tables (LUTs).
+An elementary waveform generator implemented using 3 different Look-Up Tables (LUTs). I believe that the default frequency for this code is around 100 Hz. This can easily be changed by modifying the DIVISOR variable in clk_divider.v.
 
 The left-most 3 switches correspond to 3 different waveforms:
 
