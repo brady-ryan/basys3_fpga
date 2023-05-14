@@ -1,4 +1,10 @@
-An elementary waveform generator implemented using 3 different Look-Up Tables (LUTs). I believe that the default frequency for this code is around 100 Hz. This can easily be changed by modifying the DIVISOR variable in clk_divider.v.
+An elementary waveform generator implemented using 3 different Look-Up Tables (LUTs).
+
+I believe that the default frequency for this code is around 100 Hz. This can easily be changed by modifying the DIVISOR variable in clk_divider.v. By default here it is set to divide the Basys3 clock to 100kHz.
+
+Furthermore, the frequency is also determined by the number of data points in a memory file. For example, currently there are 1024 data points, so the maximum frequency one can achieve with the Basys3 100 MHz clock is around 100kHz (100MHz/1000).
+
+To experiment with Nyquist, one can Google "sine wave LUT generator" and set the number of data points to 2. Ergo, 50MHz is the maximum frequency (unless one uses a PLL or the like to increase the Basys3 Frequency). I have not tested this, although I imagine it probably does not look very good!
 
 The left-most 3 switches correspond to 3 different waveforms:
 
