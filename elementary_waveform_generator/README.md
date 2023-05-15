@@ -15,3 +15,14 @@ The left-most 3 switches correspond to 3 different waveforms:
 The data can be transmitted using the right-most switch and integrated with the MATLAB plotting code to visualize the generated digital waves.
 
 Additionally, one can also connect the outputs to a Digital-Analog Converter for visualization on an oscilloscope.
+
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_sine.png)
+Max Amplitude Sine Wave
+
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/half_sine.png)
+Half Max Amplitude Sine Wave
+
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_triangle.png)
+Max Amplitude Triangle Wave
+
+
