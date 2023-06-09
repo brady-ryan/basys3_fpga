@@ -19,7 +19,7 @@ Additionally, one can also connect the outputs to a Digital-Analog Converter for
 ![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_sine.jpg)
 10kHz Sine Wave w/ 3.3V Amplitude.
 
-![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_churp.jpg)
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_chirp.jpg)
 Chirp wave starting at 10kHz and rising to 500kHz.
 
 ![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_triangle.jpg)
