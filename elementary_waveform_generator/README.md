@@ -17,12 +17,12 @@ The data can be transmitted using the right-most switch and integrated with the 
 Additionally, one can also connect the outputs to a Digital-Analog Converter for visualization on an oscilloscope.
 
 ![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_sine.jpg)
-Max Amplitude Sine Wave
+10kHz Sine Wave w/ 3.3V Amplitude.
 
-![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/half_sine.png)
-Half Max Amplitude Sine Wave
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_churp.jpg)
+Chirp wave starting at 10kHz and rising to 500kHz.
 
-![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_triangle.png)
-Max Amplitude Triangle Wave
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_triangle.jpg)
+1Hz Triangle Wave w/ 3.3V Amplitude
 
 
