@@ -16,7 +16,7 @@ The data can be transmitted using the right-most switch and integrated with the 
 
 Additionally, one can also connect the outputs to a Digital-Analog Converter for visualization on an oscilloscope.
 
-![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_sine.png)
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/digital_sine.jpg)
 Max Amplitude Sine Wave
 
 ![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/half_sine.png)
