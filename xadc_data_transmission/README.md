@@ -12,11 +12,11 @@ These directories contain codes to transmit data converted by the XADC analog-di
 
 ![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/10khz_xadc_test.png)
 
-(https://github.com/brady-ryan/basys3_fpga/blob/main/images/1khz_sineadc.png)
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/1khz_sineadc.png)
 
-(https://github.com/brady-ryan/basys3_fpga/blob/main/images/100khz_sineadc.png)
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/100khz_sineadc.png)
 
-(https://github.com/brady-ryan/basys3_fpga/blob/main/images/450khz_sineadc.png)
+![Fail](https://github.com/brady-ryan/basys3_fpga/blob/main/images/450khz_sineadc.png)
 
 
 
