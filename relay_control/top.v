@@ -1,31 +1,34 @@
+//Author: Ryan Brady
+//Purpose: Program the Basys3 to act as the relay control logic for the IoT Power Relay II.
+
 `timescale 1ns / 1ps
 
 module trigger2(
-    input CLK100MHZ,
-    input reset,
-    input vauxp6,
-    input vauxn6,
-    input vauxp7,
-    input vauxn7,
-    input vauxp15,
-    input vauxn15,
-    input vauxp14,
-    input vauxn14,
-    input vp_in,
-    input vn_in,
-    input [1:0] sw,
-    input override,
-    output reg [15:0] led,
-    output reg trigger,
-    output [3:0] an,
-    output dp,
-    output [6:0] seg
+    input CLK100MHZ,   //system clock
+    input reset,       //reset button
+    input vauxp6,      //positive input for XADC channel 6
+    input vauxn6,      //negative input for XADC channel 6
+    input vauxp7,      //positive input for XADC channel 7
+    input vauxn7,      //negative input for XADC channel 7
+    input vauxp15,     //positive input for XADC channel 15
+    input vauxn15,     //negative input for XADC channel 15
+    input vauxp14,     //positive input for XADC channel 14
+    input vauxn14,     //negative input for XADC channel 14
+    input vp_in,       //system positive
+    input vn_in,       //system negative
+    input [1:0] sw,    //switches to control which input is being read
+    input override,    //override switch to trigger relay (for example, if pumping down vacuum system
+    output reg [15:0] led,  //LEDs to display input Voltage level
+    output reg trigger,     //output positive end of 3.3V signal
+    output [3:0] an,        //7-segment control
+    output dp,              //7-segment control
+    output [6:0] seg        //7-segment control
 );
 
-    wire enable;  
-    wire ready;
-    wire [15:0] data;   
-    reg [6:0] Address_in;
+    wire enable;            //enable XADC
+    wire ready;             //signal to continuously undergo ADC
+    wire [15:0] data;       //digitized data from ADC
+    reg [6:0] Address_in;   //address corresponding to which voltage input port is being used
 	
 	//secen segment controller signals
     reg [32:0] count;
@@ -41,7 +44,7 @@ module trigger2(
     wire [15:0] b2d_dout;
     wire b2d_done;
 
-    //xadc instantiation connect the eoc_out .den_in to get continuous conversion
+    //xadc instantiation, connect the eoc_out .den_in to get continuous conversion
     xadc_wiz_0  XLXI_7 (
         .daddr_in(Address_in), //addresses can be found in the artix 7 XADC user guide DRP register space
         .dclk_in(CLK100MHZ), 
@@ -67,7 +70,7 @@ module trigger2(
         .drdy_out(ready)
     );
     
-    //led visual dmm              
+    //led visual - the greater the input voltage, the more LEDs that are on              
     always @(posedge(CLK100MHZ)) begin            
         if(ready == 1'b1) begin
             case (data[15:12])
@@ -128,7 +131,9 @@ module trigger2(
         .done(b2d_done),
         .dout(b2d_dout)
     );
-      
+
+
+   //Switch logic to control which input port is being ADC sampled
     always @(posedge(CLK100MHZ)) begin
         case(sw)
         0: Address_in <= 8'h16;
@@ -152,15 +157,21 @@ module trigger2(
         .dp(dp),
         .seg(seg)
     );
- 
+
+   //Main logic to control output voltage to power relay
  integer i = 0;
-    
+
+   //if the input voltage is >500mV at any point, and the override switch is not active, do not supply 3.3V output
     always @(posedge CLK100MHZ) begin
     if(led >= 16'b111111111 & ~override) begin
         trigger = 1'b0;
         i = 1;
+   //if the input voltage is <500mV or the ovveride switch is active, supply 3.3V output
      end else if (i <= 0 || override) begin
         trigger = 1'b1;
+
+	//if the reset button is pressed and the voltage is <500mV, 3.3V supply is output.
+	//An example as to why this portion is needed is if the pump temporarily loses power --> vacuum system rises over 500mTorr --> vacuum suddenly turns back on --> system pumps back down --> valve STILL remains closed to prevent any potential oil splattering or adverse effects.
      end else if (reset) begin
         i = 0;
      end
